@@ -65,7 +65,11 @@
     display: flex;
     transition: background-color 3s;
 }
- 
+
+  .flex-div:hover {
+    background-color: purple;
+}
+  
   .flex-container {
     display: flex;
     justify-content: space-evenly;
