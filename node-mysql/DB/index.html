@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formular</h1>
+    <p>Meow</p>
+    <form action="/uloz-uzivatele" method="post">
+        <input type="text" name="jmeno" placeholder="Jméno" required>
+        <input type="text" name="prijmeni" placeholder="Příjmení" required>
+        <input type="submit" value="poslat">
+    </form>
+    <input type="submit" value="poslat2">
+ 
+    <script>
+        async function poslat() {
+            let data = await fetch("/uloz-uzivatele",
+            {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        jmeno: document.getElementById('jmeno').value,
+                        prijmeni: document.getElementById('prijmeni').value
+                    }
+                )
+            }
+            );
+            windows.location.href = data.url;
+        }
+    </script>
+</body>
+</html>
